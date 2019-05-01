@@ -16,7 +16,7 @@ app.use(express.static('public'));
 
 app.post('/', function(req, res){
    const sgMail = require('@sendgrid/mail');
-   var apikey="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";
+   var apikey="***********";
 	sgMail.setApiKey(apikey);
 	var mesg = {
   	to: req.body.emailid,
@@ -27,8 +27,8 @@ app.post('/', function(req, res){
 	sgMail.send(mesg);
 	const Nexmo = require('nexmo');
 	const nexmo = new Nexmo({
-  		apiKey: '9243c873',
-  		apiSecret: 'jnPWhw97eoCAMPNA'
+  		apiKey: '********',
+  		apiSecret: '*********'
 	})
 	var text=req.body.subject+" "+req.body.msg;
 	nexmo.message.sendSms("DCC-NoReply", req.body.mobile, text)
